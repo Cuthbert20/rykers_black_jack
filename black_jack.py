@@ -10,7 +10,7 @@ import random
     #Bust if over 21
     #dealer draw until > 16
     #NOTES:
-        #currently just one deck. 
+        #not popping off card from deck that was drawn (simulates multipule decks)
         #will not be handlign splits for MVP. (that will come on the next round)
 logo = """
 .------.            _     _            _    _            _    
