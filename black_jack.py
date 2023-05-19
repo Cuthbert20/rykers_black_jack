@@ -44,3 +44,9 @@ for suit in suits:
         deck[card_key] = values[value]
         
 print(deck)
+
+play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower() == 'y'
+
+if play:
+    print(logo)
+
