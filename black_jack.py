@@ -74,8 +74,28 @@ if play:
     dealers_card_2 = draw_a_card()
     dealers_cards = []
     dealers_cards.extend([dealers_card_1, dealers_card_2])
+    player_score = sum(card[1] for card in players_cards)
+    dealers_score = sum(card[1] for card in dealers_cards)
     print(logo)
-    print(players_cards)
+    print(f"Your cards are: {players_cards} your current score is: {player_score}")
     print(dealers_card_1)
+    draw_again = input("type 'y' to get another card, type 'n' to pass: ").lower() == 'y'
+    while draw_again and player_score < 21:
+        players_card = draw_a_card()
+        players_cards.append(players_card)
+        player_score += players_card[1]
+        print(f"Your cards are: {players_cards}, current score: {player_score}")   
+        if player_score == 21:
+            print("BlackJack, you win  \U0001F929")
+        elif player_score > 21:
+            # print("you loose, well lets see if the dealer busted")
+            break
+        draw_again = input("type 'y' to get another card, type 'n' to pass: ").lower() == 'y'
+#now we are out of our loop, we need to check the dealers score and they will pull til they hit a number >=16
+while dealers_score < 16:
+    dealers_card = draw_a_card()
+    dealers_score += dealers_card[1]
+
+
 
 
