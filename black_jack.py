@@ -86,7 +86,8 @@ if play:
         player_score += players_card[1]
         print(f"Your cards are: {players_cards}, current score: {player_score}")   
         if player_score == 21:
-            print("BlackJack, you win  \U0001F929")
+            # print("BlackJack, you win  \U0001F929")
+            break
         elif player_score > 21:
             # print("you loose, well lets see if the dealer busted")
             break
@@ -95,7 +96,12 @@ if play:
 while dealers_score < 16:
     dealers_card = draw_a_card()
     dealers_score += dealers_card[1]
-
-
-
+#lose conditions.    
+if player_score > 21 or (dealers_score <= 21 and dealers_score > player_score):
+    print(f"You loose Player Score: {player_score}, Dealer Score: {dealers_score}")
+elif dealers_score == player_score and player_score <= 21:
+    print("We have a push")
+else:
+    print(f"You won, Player Score: {player_score}, Dealer Score: {dealers_score}")
+## Still need to handle 11 or 1.
 
